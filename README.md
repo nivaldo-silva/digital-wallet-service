@@ -1,126 +1,109 @@
-# 💰 Carteira de pagamentos Digital
+# Sistema de Carteira Digital
 
-##  Sobre o Projeto
+## Sobre o Projeto
 
-Sistema de carteira digital desenvolvido em **Java 21** com **Spring Boot**, simulando operações financeiras reais como transferências entre usuários, validação de transações e notificações automáticas. O projeto implementa as melhores práticas de desenvolvimento backend, arquitetura em camadas e integração com APIs externas.
+Sistema de carteira digital desenvolvido em **Java 21** com **Spring Boot**, implementando operações financeiras como transferências entre usuários, validação de transações e notificações automáticas. O projeto aplica as melhores práticas de desenvolvimento backend, arquitetura em camadas e integração com serviços externos.
 
-##  Tecnologias e Ferramentas Utilizadas
+## Stack Tecnológica
 
-### Backend Core
-- **Java 21** - Linguagem principal com recursos modernos
-- **Spring Boot 3.x** - Framework principal para desenvolvimento
+### Core Framework
+- **Java 21** - Linguagem principal
+- **Spring Boot 3.5.4 - Framework de desenvolvimento
 - **Spring Web** - APIs RESTful
-- **Spring Data JPA** - Persistência de dados com ORM
-- **Spring Cloud OpenFeign** - Cliente HTTP declarativo para microserviços
-- **Spring Validation** - Validação robusta de dados
+- **Spring Data JPA** - Persistência de dados
+- **Spring Cloud OpenFeign** - Cliente HTTP declarativo
+- **Spring Validation** - Validação de dados
 
 ### Arquitetura e Padrões
 - **Arquitetura em Camadas** (Controller, Service, Repository)
-- **DTO Pattern** - Transfer Objects para segurança de dados
-- **Builder Pattern** - Construção limpa de objetos complexos
+- **DTO Pattern** - Objetos de transferência de dados
+- **Builder Pattern** - Construção de objetos complexos
 - **Repository Pattern** - Abstração da camada de dados
 - **Dependency Injection** - Inversão de controle
 
-### Banco de Dados
-- **JPA/Hibernate** - ORM robusto
-- **UUID** como chave primária - Identificadores únicos globais
+### Persistência
+- **JPA/Hibernate** - ORM
+- **UUID** - Identificadores únicos
 - **BigDecimal** - Precisão em valores monetários
-- **Relacionamentos JPA** - OneToOne, ManyToOne com mapeamento bidirecional
+- **Relacionamentos JPA** - Mapeamento bidirecional
 
-### Resiliência e Integração
-- **Resilience4j** - Circuit Breaker e Retry patterns
+### Resiliência
+- **Resilience4j** - Circuit Breaker e Retry
 - **OpenFeign** - Integração com APIs externas
-- **Programação Assíncrona** - CompletableFuture para notificações
+- **CompletableFuture** - Processamento assíncrono
 
-### Qualidade de Código
-- **Lombok** - Redução de boilerplate
-- **SLF4J** - Sistema de logging profissional
-- **Bean Validation** - Validações declarativas
-- **Exception Handling** - Tratamento centralizado de erros
-
-##  Arquitetura do Sistema
+## Arquitetura do Sistema
 
 ```
-📦 src/main/java/io/github/nivaldosilva/wallet/
-├── 🎮 controllers/          # Camada de apresentação (REST APIs)
-├── 🔧 services/            # Regras de negócio
-├── 🗃️  repositories/        # Acesso a dados
-├── 🏢 entities/            # Modelos de domínio
-├── 📋 dto/                 # Objetos de transferência
-├── 🌐 clients/             # Integrações externas
-├── ⚠️  exceptions/          # Tratamento de erros
-└── ⚙️  config/             # Configurações
+src/main/java/io/github/nivaldosilva/wallet/
+├── controllers/          # Camada de apresentação
+├── services/            # Regras de negócio
+├── repositories/        # Acesso a dados
+├── entities/            # Modelos de domínio
+├── dto/                 # Objetos de transferência
+├── clients/             # Integrações externas
+├── exceptions/          # Tratamento de erros
+└── config/             # Configurações
 ```
 
-## 💼 Funcionalidades Implementadas
+## Funcionalidades
 
-### 👥 Gestão de Usuários
-- ✅ Criação de usuários (Cliente/Comerciante)
-- ✅ Validação de CPF/CNPJ únicos
-- ✅ Listagem com filtros por tipo
-- ✅ Busca por ID
+### Gestão de Usuários
+- Criação de usuários (Cliente/Comerciante)
+- Validação de CPF/CNPJ únicos
+- Listagem com filtros por tipo
+- Busca por identificador
 
-### 💳 Sistema de Carteiras
-- ✅ Criação automática de carteira
-- ✅ Controle de saldo em tempo real
-- ✅ Operações de débito/crédito thread-safe
+### Sistema de Carteiras
+- Criação automática de carteira
+- Controle de saldo em tempo real
+- Operações de débito/crédito thread-safe
 
-### 💸 Transferências
-- ✅ Validação de saldo suficiente
-- ✅ Restrições de negócio (comerciantes não podem pagar)
-- ✅ Autorização via API externa
-- ✅ Notificações assíncronas
-- ✅ Histórico completo de transações
+### Transferências
+- Validação de saldo suficiente
+- Restrições de negócio
+- Autorização via API externa
+- Notificações assíncronas
+- Histórico completo de transações
 
-### 🛡️ Segurança e Validação
-- ✅ Validação de entrada robusta
-- ✅ Tratamento centralizado de exceções
-- ✅ Códigos de erro padronizados
-- ✅ Logging estruturado
-
-## 📊 Endpoints da API
+## API Endpoints
 
 ### Usuários
-```http
+```
 POST   /users                    # Criar usuário
-GET    /users                    # Listar todos os usuários
+GET    /users                    # Listar usuários
 GET    /users?userType=CUSTOMER  # Filtrar por tipo
 GET    /users/{id}               # Buscar por ID
 ```
 
 ### Transações
-```http
+```
 POST   /transactions             # Processar transferência
 GET    /transactions             # Histórico de transações
 ```
 
-## 🔧 Configuração e Execução
+## Configuração
 
 ### Pré-requisitos
 - Java 21+
-- Maven 3.8+
-- Banco de dados (H2/PostgreSQL/MySQL)
+- Maven 
+- Banco de dados compatível
 
-### Executando o projeto
+### Execução
 ```bash
-# Clone o repositório
 git clone [url-do-repositorio]
-
-# Entre no diretório
 cd wallet-system
-
-# Execute com Maven
 mvn spring-boot:run
 ```
 
 ### Dados de Teste
-O sistema possui um **DatabaseSeeder** que popula automaticamente dados de teste:
-- 2 usuários cliente com saldos de R$ 1.000,00 e R$ 2.000,00
-- 1 comerciante com saldo de R$ 5.000,00
+O sistema inclui um **DatabaseSeeder** que popula dados iniciais:
+- 2 usuários cliente (R$ 1.000,00 e R$ 2.000,00)
+- 1 comerciante (R$ 5.000,00)
 
-## 🧪 Exemplo de Uso
+## Exemplo de Integração
 
-### Criar Transferência
+### Request - Transferência
 ```json
 POST /transactions
 {
@@ -130,7 +113,7 @@ POST /transactions
 }
 ```
 
-### Resposta
+### Response
 ```json
 {
   "id": "uuid-da-transacao",
@@ -142,45 +125,46 @@ POST /transactions
 }
 ```
 
-## 🌟 Destaques Técnicos
+## Aspectos Técnicos Relevantes
 
-### Tratamento de Concorrência
-- Uso de `@Transactional` para operações atômicas
-- Validações de saldo thread-safe
+### Concorrência
+- Transações atômicas com `@Transactional`
+- Validações thread-safe
 - Processamento assíncrono de notificações
 
-### Integração com APIs Externas
+### Integrações
 - Cliente Feign com retry automático
-- Tratamento robusto de falhas de rede
+- Tratamento de falhas de rede
 - Autorização externa para transações
 
-### Modelagem de Dados
-- Relacionamentos JPA bem estruturados
-- Uso de BigDecimal para precisão monetária
-- Timestamps automáticos com Instant
+### Modelagem
+- Relacionamentos JPA estruturados
+- Precisão monetária com BigDecimal
+- Timestamps automáticos
 
-## 🎯 Competências Demonstradas
+## Competências Técnicas Demonstradas
 
-### Desenvolvimento Backend
-- ✅ APIs RESTful profissionais
-- ✅ Arquitetura limpa e escalável
-- ✅ Padrões de projeto consolidados
-- ✅ Tratamento robusto de erros
+### Backend Development
+- Design e implementação de APIs RESTful
+- Arquitetura limpa e escalável
+- Aplicação de padrões de projeto
+- Tratamento robusto de exceções
 
-### Banco de Dados
-- ✅ Modelagem relacional eficiente
-- ✅ JPA/Hibernate avançado
-- ✅ Transações e integridade de dados
+### Persistência de Dados
+- Modelagem relacional eficiente
+- JPA/Hibernate avançado
+- Gerenciamento de transações
+- Integridade referencial
 
-### Integração e Microserviços
-- ✅ Comunicação entre serviços
-- ✅ Resiliência e tolerância a falhas
-- ✅ Processamento assíncrono
+### Integração de Sistemas
+- Comunicação entre serviços
+- Implementação de resiliência
+- Processamento assíncrono
+- Tolerância a falhas
 
-### Qualidade e Manutenibilidade
-- ✅ Código limpo 
-- ✅ Separação clara de responsabilidades
-- ✅ Logging e monitoramento
-
----
+### Qualidade de Software
+- Código limpo e manutenível
+- Separação clara de responsabilidades
+- Logging estruturado
+- Validação robusta de dados
 
