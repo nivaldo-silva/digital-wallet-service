@@ -97,7 +97,7 @@ GET    /transactions             # Histórico de transações
 ## 🔧 Configuração e Execução
 
 ### Pré-requisitos
-- Java 17+
+- Java 21+
 - Maven 3.8+
 - Banco de dados (H2/PostgreSQL/MySQL)
 
