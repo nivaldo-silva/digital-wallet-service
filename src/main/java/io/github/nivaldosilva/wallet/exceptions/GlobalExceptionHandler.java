@@ -1,12 +1,9 @@
-package io.github.nivaldosilva.wallet.controllers;
+package io.github.nivaldosilva.wallet.exceptions;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
-import io.github.nivaldosilva.wallet.exceptions.TransactionException;
-import io.github.nivaldosilva.wallet.exceptions.UserAlreadyExistsException;
-import io.github.nivaldosilva.wallet.exceptions.UserNotFoundException;
 
 @ControllerAdvice
 public class GlobalExceptionHandler {

@@ -8,7 +8,7 @@ Sistema de carteira digital desenvolvido em **Java 21** com **Spring Boot**, imp
 
 ### Core Framework
 - **Java 21** - Linguagem principal
-- **Spring Boot 3.5.4 - Framework de desenvolvimento
+- **Spring Boot 3.5.4** - Framework de desenvolvimento
 - **Spring Web** - APIs RESTful
 - **Spring Data JPA** - Persistência de dados
 - **Spring Cloud OpenFeign** - Cliente HTTP declarativo
@@ -27,10 +27,6 @@ Sistema de carteira digital desenvolvido em **Java 21** com **Spring Boot**, imp
 - **BigDecimal** - Precisão em valores monetários
 - **Relacionamentos JPA** - Mapeamento bidirecional
 
-### Resiliência
-- **Resilience4j** - Circuit Breaker e Retry
-- **OpenFeign** - Integração com APIs externas
-- **CompletableFuture** - Processamento assíncrono
 
 ## Arquitetura do Sistema
 
